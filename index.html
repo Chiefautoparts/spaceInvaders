@@ -31,6 +31,51 @@
 			{ left: 800, top: 175 },
 			{ left: 900, top: 175 },
 		];
+
+		document.onkeydown = function(e) {
+			if (e.keyCode === 37) {
+				// Left Key
+				player.left = player.left - 10;
+			}
+			if (e.keyCode === 39) {
+				// Right Key
+				player.left = player.left + 10;
+			}
+			if (e.keyCode === 32) {
+				// spacebar to fire missile
+				missiles.push({
+					left: player.left + 20,
+					top: player.top -20
+				});
+				drawMissiles();
+			}
+			drawPlayer();
+		}
+
+		function drawPlayer() {
+			document.getElementById('Player').style.left = player.left + 'px';
+			document.getElementById('Player').style.top = player.top + 'px';
+			}
+		function drawMissiles() {
+			document.getElementById('missiles').innerHTML = ""
+			for(var i = 0; i < missiles.length; i++){
+				document.getElementById('missiles').innerHTML += `<div class='missile1' style='left:${missiles[i].left}px; top:${missiles[i].top}px'></div>`;
+			}
+		}
+
+		function moveMissiles() {
+			for(var i = 0; i < missiles.length; i++) {
+				missiles[i].top = missiles[i].top - 8
+			}
+		}
+
+		function drawEnemies() {
+			document.getElementById('aliens').innerHTML = ""
+			for(var i = 0; i < aliens.length; i++){
+				document.getElementById('aliens').innerHTML += `<div class='aliens' style='left:${aliens[i].left}px; top:${aliens[i].top}px'></div>`;
+            }
+			}
+		}
 	</script>
 </head>
 <body>
