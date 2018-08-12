@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Space Invaders</title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="style.css">
 	
 </head>
 <body>
@@ -19,7 +19,7 @@
 			top: 700
 		};
 
-		var = missiles = [];
+		var missiles = [];
 
 		var enemies = [
 			{ left: 200, top: 100 },
@@ -80,7 +80,7 @@
 		function drawEnemies() {
             document.getElementById('enemies').innerHTML = ""
             for(var i = 0 ; i < enemies.length ; i++ ) {
-                document.getElementById('enemies').innerHTML += `<div class='alien' style='left:${enemies[i].left}px; top:${enemies[i].top}px'></div>`;
+                document.getElementById('enemies').innerHTML += `<div class='enemy' style='left:${enemies[i].left}px; top:${enemies[i].top}px'></div>`;
             }
         }
 
